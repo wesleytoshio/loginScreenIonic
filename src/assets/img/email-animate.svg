@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="iso-8859-1"?>
+<svg enable-background="new 0 0 512 512" version="1.1" viewBox="0 0 512 512" xml:space="preserve" xmlns="http://www.w3.org/2000/svg">
+<style>
+.line-1{
+  transform-origin: center center;
+  animation-name: fadeIn;
+  animation-duration:0.5s;
+  animation-delay:0.3s;
+  animation-timing-function: linear;
+  animation-fill-mode:both;
+}
+.line-2{
+  transform-origin: center center;
+  animation-name: fadeIn;
+  animation-duration:0.5s;
+  animation-delay:0.5s;
+  animation-timing-function: linear;
+  animation-fill-mode:both;
+}
+.line-3{
+  transform-origin: center center;
+  animation-name: fadeIn;
+  animation-duration:0.5s;
+  animation-delay:0.7s;
+  animation-timing-function: linear;
+  animation-fill-mode:both;
+}
+@-webkit-keyframes fadeIn{
+  from{
+    opacity:0;
+	transform:scale(0);
+  }
+  to{
+    opacity:1;
+	transform:scale(1);
+  }
+}
+</style>
+		<path class="line-1" d="m174.54 302.54h-93.09c-6.982 0-11.636 4.655-11.636 11.636s4.655 11.636 11.636 11.636h93.091c6.982 0 11.636-4.655 11.636-11.636s-4.655-11.636-11.637-11.636z" fill="#fff"/>
+		<path class="line-2" d="m139.64 244.36h-93.091c-6.982 0-11.636 4.655-11.636 11.636s4.655 11.636 11.636 11.636h93.091c6.982 0 11.636-4.655 11.636-11.636s-4.654-11.636-11.636-11.636z" fill="#fff"/>
+		<path class="line-3" d="m104.73 186.18h-93.091c-6.981 0-11.636 4.654-11.636 11.636s4.655 11.636 11.636 11.636h93.091c6.982 0 11.636-4.655 11.636-11.636s-4.654-11.636-11.636-11.636z" fill="#fff"/>
+		<path d="m463.13 155.93c-3.491-4.655-11.636-5.818-16.291-2.327l-123.34 94.255c-12.8 9.309-30.255 9.309-43.055 0l-123.34-94.255c-4.655-3.491-12.8-3.491-16.291 2.327-3.491 4.655-3.491 12.8 2.327 16.291l124.51 94.255c10.473 8.145 23.273 11.636 34.909 11.636s25.6-3.491 34.909-11.636l123.35-94.255c4.655-3.491 5.818-11.636 2.327-16.291z" fill="#fff"/>
+		<path d="m477.09 104.73h-372.36c-6.982 0-11.636 4.655-11.636 11.636s4.654 11.637 11.636 11.637h372.36c6.982 0 11.636 4.655 11.636 11.636v232.73c0 6.982-4.655 11.636-11.636 11.636h-372.36c-6.982 0-11.636 4.655-11.636 11.636 0 6.982 4.655 11.636 11.636 11.636h372.36c19.782 0 34.909-15.127 34.909-34.909v-232.73c0-19.781-15.127-34.909-34.909-34.909z" fill="#fff"/>
+		<path d="m461.96 340.94l-69.818-69.818c-4.655-4.655-11.636-4.655-16.291 0s-4.655 11.636 0 16.291l69.818 69.818c2.327 2.327 5.818 3.491 8.145 3.491s5.818-1.164 8.146-3.491c4.654-4.654 4.654-11.636 0-16.291z" fill="#fff"/>
+</svg>
+

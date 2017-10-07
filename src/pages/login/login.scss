@@ -1,0 +1,140 @@
+page-login {
+    ion-content {
+        background-image: url('../assets/img/login_background.jpg');
+        background-size: cover;
+        background-repeat: no-repeat;
+        background-position: center center;
+        &:before {
+            content: "";
+            width: 100%;
+            height: 100%;
+            position: absolute;
+            background-color: rgba($dark-blue, 0.7);
+        }
+        .logo {
+            max-width: 200px;
+            display: block;
+            margin: 10vmax auto 5vmax;
+        }
+        .login-form {
+            width: 80vmin;
+            border-radius: 5px;
+            background-color: #fff;
+            margin: 0 auto;
+            overflow: hidden;
+            padding: 0 $im;
+            box-shadow: 0 1px 3px rgba(0, 0, 0, 0.12), 0 1px 2px rgba(0, 0, 0, 0.24);
+            label {
+                height: 56px $im;
+                margin: 0 $im;
+                padding: 0 $im;
+                display: block;
+                position: relative;
+                width: 100%;
+                border-bottom: solid 1px #eee;
+                i {
+                    height: 56px;
+                    width: 48px;
+                    display: block;
+                    text-align: center;
+                    border-right: solid 1px #eee;
+                    position: relative;
+                    float: left;
+                    &:before {
+                        transform: translate(-50%, -50%);
+                        top: 50%;
+                        left: 50%;
+                        position: absolute;
+                        color: #ccc;
+                    }
+                    font-size: 1.5em;
+                    padding: 0 10px;
+                }
+                input {
+                    height: 56px;
+                    border: none;
+                    background-color: transparent;
+                    padding-left: 10px;
+                    color: $dark-blue;
+                    font-weight: 700;
+                    width: calc(100% - 60px);
+                    transition: 0.3s;
+                    &[type="password"] {
+                        font-weight: 700;
+                        width: calc(100% - 80px) $im;
+                        -webkit-text-security: circle $im;
+                    }
+                    &::-webkit-input-placeholder {
+                        font-weight: 400;
+                    }
+                }
+            }
+        }
+        .btn-forgot {
+            display: block;
+            float: right;
+            font-size: 1.2em;
+            color: $yellow;
+            background-color: transparent;
+            border: none;
+            margin-right: 10vmin;
+            margin-top: 15px;
+            font-weight: 400;
+        }
+        password-strength-bar {
+            position: absolute;
+            z-index: 2;
+        }
+        .password-show-hide {
+            position: absolute;
+            z-index: 2;
+            width: 38px;
+            padding: 0 $im;
+            right: 0;
+            height: 100%;
+            border: none;
+            background-color: transparent;
+            &:before {
+                content: $font-uta-show-pass;
+                font-size: 1.7em;
+                color: #B3B2B2;
+            }
+            &.pass-show {
+                &:before {
+                    content: $font-uta-hide-pass;
+                    font-size: 1.7em;
+                    color: #B3B2B2;
+                }
+            }
+        }
+    }
+    ion-footer {
+        width: 100%;
+        display: block;
+        .btn-signin {
+            width: 80%;
+            background-color: rgba($yellow, 1);
+            color: #fff;
+            border: solid 1px $yellow;
+            height: 47px;
+            border-radius: 5px;
+            margin: 10px auto 20px;
+            font-size: 1.6em;
+            display: block;
+            font-weight: 800;
+            transition: 0.3s;
+            &[disabled] {
+                background-color: rgba($yellow, 0) $im;
+                color: $yellow;
+                opacity: 1 $im;
+            }
+            ion-spinner {
+                margin-top: 5px;
+                * {
+                    stroke: #fff;
+                    stroke-width: 6px;
+                }
+            }
+        }
+    }
+}

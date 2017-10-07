@@ -1,0 +1,63 @@
+<ion-header>
+    <ion-navbar>
+    </ion-navbar>
+</ion-header>
+<ion-content>
+    <object class="hidden-keyboard-open">
+        <embed  *ngIf="currentStage=='email'" src="assets/img/email-animate.svg" class="icon-header-email" alt="icon-header">
+        <embed  *ngIf="currentStage=='code'" src="assets/img/code-animate.svg" class="icon-header-code" alt="icon-header">
+        <embed  *ngIf="currentStage=='password'" src="assets/img/password-animate.svg" class="icon-header-password" alt="icon-header">
+    </object>
+    <p class="text-message">
+        {{currentStage=='email' ? 'Enter your email address to send one code for create a new password' : (currentStage=='email' ? 'Please enter the code we sent to your email': 'You can now enter a new password')}}
+    </p>
+    <!-- STAGE SEND EMAIL -->
+    <form class="login-form" *ngIf="currentStage=='email'" [formGroup]="form">
+        <label for="username">
+            <i class="uta uta-email"></i>
+            <input type="email" placeholder="Enter email address" [(ngModel)]="data.email"  email="true" formControlName="email"/>
+            <ion-icon class="valid-email" ios="ios-checkmark-circle" md="md-checkmark-circle" *ngIf="form.controls.email.valid && form.controls.email.touched"></ion-icon>
+        </label>
+    </form>
+
+    <!-- STAGE  CODE -->
+    <form class="login-form" *ngIf="currentStage=='code'" [formGroup]="form">
+        <label for="username">
+            <i class="uta uta-password"></i>
+            <input type="number" placeholder="0000" [(ngModel)]="data.code"  formControlName="code"/>
+        </label>
+    </form>
+
+    <!-- STAGE PASSWORD -->
+    <form class="login-form" *ngIf="currentStage=='password'" [formGroup]="form">
+        <label for="pass">
+           <i class="uta uta-unlocked"></i>
+           <input [type]="inputType" class="form-control" id="pass"  name="pass" placeholder="New password"
+             [(ngModel)]="data.pass"  formControlName="pass" />
+            <password-strength-bar [passwordToCheck]="data.pass"></password-strength-bar>
+        </label>
+        <label for="newpassword">
+            <i class="uta uta-password"></i>
+            <input [type]="inputType" class="form-control" id="newpassword"  name="password" placeholder="Confirm new password"
+              [(ngModel)]="data.password"  formControlName="password" validateEqual="password" />
+              <button class="password-show-hide pass-show uta" [ngClass]="{'pass-show':inputType=='text'}"  (click)="showHidePass()"></button>
+         </label>
+    </form>
+</ion-content>
+<ion-footer class="hidden-keyboard-open">
+    <!-- STAGE EMAIL -->
+    <button class="btn-signin" *ngIf="currentStage=='email'" [disabled]="form.controls.email.invalid" [ngClass]="{'hidde-text':state=='big'}" [@buttonCircledAnimated]='state' (click)="request.email()">
+        <b>{{state == 'ball' ? '' :'Send email'}}</b>
+        <ion-spinner *ngIf="state == 'ball'" name="crescent"></ion-spinner>
+    </button>
+    <!-- STAGE CODE -->
+    <button class="btn-signin" *ngIf="currentStage=='code'" [ngClass]="{'hidde-text':state=='big'}" [disabled]="form.controls.code.invalid" [@buttonCircledAnimated]='state' (click)="request.code()">
+        <b>{{state == 'ball' ? '' :'Check code'}}</b>
+        <ion-spinner *ngIf="state == 'ball'" name="crescent"></ion-spinner>
+    </button>
+    <!-- STAGE NEW PASSWORD -->
+    <button class="btn-signin" *ngIf="currentStage=='password'" [ngClass]="{'hidde-text':state=='big'}" [disabled]="form.invalid" [@buttonCircledAnimated]='state' (click)="request.password()" (@buttonCircledAnimated.done)="onAnimationEnd($event)">
+        <b>{{state == 'ball' ? '' : (state == 'expand' ? '' : 'Save password')}}</b>
+        <ion-spinner *ngIf="state == 'ball'" name="crescent"></ion-spinner>
+    </button>
+</ion-footer>

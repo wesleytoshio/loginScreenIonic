@@ -1,0 +1,24 @@
+<ion-content>
+    <object class="hidden-keyboard-open">
+        <embed src="assets/img/logo.svg" class="logo" alt="logo">
+    </object>
+    <form class="login-form" [formGroup]="form">
+        <label for="username">
+            <i class="uta uta-avatar"></i>
+            <input type="text" placeholder="Enter username" [(ngModel)]="data.nickname"  formControlName="nickname"/>
+        </label>
+        <label for="password">
+           <i class="uta uta-unlocked"></i>
+           <input [type]="inputType" class="form-control" id="password"  name="password" placeholder="Enter password"
+             [(ngModel)]="data.password"  formControlName="password" />
+            <button class="password-show-hide pass-show uta" [ngClass]="{'pass-show':inputType=='text'}"  (click)="showHidePass()"></button>
+        </label>
+    </form>
+    <button class="btn-forgot" (click)="goForgot()">Forgot password</button>
+</ion-content>
+<ion-footer class="hidden-keyboard-open">
+    <button class="btn-signin" [ngClass]="{'hidde-text':state=='big'}" [disabled]="form.valid" [@buttonCircledAnimated]='state' (click)="login()" (@buttonCircledAnimated.done)="onAnimationEnd($event)">
+        <b>{{state == 'ball' ? '' : (state == 'expand' ? '' : 'Sign in')}}</b>
+        <ion-spinner *ngIf="state == 'ball'" name="crescent"></ion-spinner>
+    </button>
+</ion-footer>
